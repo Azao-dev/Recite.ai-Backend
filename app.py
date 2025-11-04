@@ -22,7 +22,7 @@ if credentials_env: #actual deployment
 else: # Local testing
     credentials = service_account.Credentials.from_service_account_ifile("google_creds.json")
 
-client = texttospeech.TextToSpeechClient() 
+client = texttospeech.TextToSpeechClient(credentials=credentials) 
 # To activate venv, use . venv\scripts\activate
 # To run this, use python -m flask run -p 8080
 
@@ -86,4 +86,5 @@ def image_to_text():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
+
     app.run(host= "0.0.0.0", debug=True, threaded=True, port=port)
