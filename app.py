@@ -54,7 +54,8 @@ def image_to_text():
                 language_code = "en-US",
                 ssml_gender = texttospeech.SsmlVoiceGender.NEUTRAL
             )
-
+            print("tts created")
+            
             try: 
                 print("making text response")
                 image = Image.open(image_file.stream)
@@ -88,5 +89,6 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
