@@ -21,6 +21,7 @@ if credentials_env: #actual deployment
     print("credentials exist")
     credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_env))
 else: # Local testing
+    print("credentials not found")
     credentials = service_account.Credentials.from_service_account_file("google_creds.json")
 
 client = texttospeech.TextToSpeechClient(credentials=credentials) 
@@ -90,6 +91,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
