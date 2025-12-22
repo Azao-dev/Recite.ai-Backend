@@ -15,7 +15,7 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 app = Flask(__name__)
 CORS(app)
 
-credentials_env = os.environ.get("GOOGLE_CREDENTIALS")
+credentials_env = os.environ.get("/etc/secrets/GOOGLE_CREDENTIALS.json")
 
 if credentials_env: #actual deployment
     credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_env))
@@ -89,6 +89,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
