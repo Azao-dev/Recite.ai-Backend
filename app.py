@@ -48,14 +48,15 @@ def image_to_text():
         print("image found")
 
         if image_file:
-
+            print("file found")
             client = texttospeech.TextToSpeechClient()
             tts_voice = texttospeech.VoiceSelectionParams(
                 language_code = "en-US",
                 ssml_gender = texttospeech.SsmlVoiceGender.NEUTRAL
             )
 
-            try:
+            try: 
+                print("making text response")
                 image = Image.open(image_file.stream)
                 text = pytesseract.image_to_string(image)
                 
@@ -82,8 +83,10 @@ def image_to_text():
                 })
 
             except Exception as e:
+                print("error found")
                 return e
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
