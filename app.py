@@ -18,6 +18,10 @@ CORS(app)
 cred = '/etc/secrets/GOOGLE_CREDENTIALS.json'
 credentials_env = os.environ.get(cred)
 
+print(cred)
+if os.environ.get(cred):
+    print("Environment extists")
+
 if credentials_env: #actual deployment
     print("credentials exist")
     credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_env))
@@ -92,6 +96,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
