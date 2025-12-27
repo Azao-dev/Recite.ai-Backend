@@ -20,6 +20,8 @@ cred = '/etc/secrets/google_creds.json'
 try: #try extracting the json file
     with open(cred, "r") as c:
         credentials_env = c.read
+except: 
+    print("could not read credentials")
         
 if credentials_env: #actual deployment
     print("credentials exist")
@@ -96,6 +98,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
