@@ -57,6 +57,7 @@ def image_to_text():
         if image_file:
             print("file found")
             client = texttospeech.TextToSpeechClient()
+            print("tts 1 check")
             tts_voice = texttospeech.VoiceSelectionParams(
                 language_code = "en-US",
                 ssml_gender = texttospeech.SsmlVoiceGender.NEUTRAL
@@ -96,6 +97,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
