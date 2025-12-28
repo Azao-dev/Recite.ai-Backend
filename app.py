@@ -65,6 +65,7 @@ def image_to_text():
             try: 
                 print("making text response")
                 image = Image.open(image_file.stream)
+                print(type(image))
                 text = pytesseract.image_to_string(image)
                 
                 audio_config = texttospeech.AudioConfig(
@@ -96,6 +97,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
