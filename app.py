@@ -5,7 +5,7 @@ from google.cloud import texttospeech
 from google.oauth2 import service_account
 from PIL import Image
 
-import os
+import os 
 import pytesseract 
 import base64
 import json
@@ -102,6 +102,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
