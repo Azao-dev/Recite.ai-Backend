@@ -34,7 +34,7 @@ else: # Local testing
     print("credentials not found")
     credentials = service_account.Credentials.from_service_account_file("google_creds.json")
 
-client = texttospeech.TextToSpeechClient(credentials=credentials, project=credentials.project_id) 
+client = texttospeech.TextToSpeechClient(credentials=credentials) 
 # To activate venv, use . venv\scripts\activate
 # To run this, use python -m flask run -p 8080
 
@@ -61,7 +61,6 @@ def image_to_text():
 
         if image_file:
             print("file found")
-            client = texttospeech.TextToSpeechClient()
             print("tts 1 check")
             tts_voice = texttospeech.VoiceSelectionParams(
                 language_code = "en-US",
@@ -102,6 +101,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
