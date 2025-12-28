@@ -26,8 +26,9 @@ except:
 if credentials_env: #actual deployment
     print("credentials exist")
     print(type(credentials_env))
-    credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_env))
+    credentials = service_account.Credentials.from_service_account_info(credentials_env.json())
     # json.loads(credentials_env)
+    # credentials_env.json()
 else: # Local testing
     print("credentials not found")
     credentials = service_account.Credentials.from_service_account_file("google_creds.json")
