@@ -72,22 +72,24 @@ def image_to_text():
                 print("making text response")
                 image = Image.open(image_file.stream)
                 text = pytesseract.image_to_string(image)
+                print(text)
                 
                 audio_config = texttospeech.AudioConfig(
                     audio_encoding=texttospeech.AudioEncoding.MP3
                 )
+                print("audio encoding complete")
 
                 inp = texttospeech.SynthesisInput(text=text)
+                print("input created")
 
                 response = client.synthesize_speech(
                     input = inp,
                     voice = tts_voice,
                     audio_config = audio_config
-                )
+                ) 
+                print("response created")
 
                 audio_64 = base64.b64encode(response.audio_content).decode("utf-8")
-
-                print(text)
 
                 return jsonify({
                     "audio": audio_64,
@@ -101,6 +103,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
