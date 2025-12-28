@@ -26,7 +26,7 @@ except:
 if credentials_env: #actual deployment
     print("credentials exist")
     print(type(credentials_env))
-    credentials = service_account.Credentials.from_service_account_info(credentials_env)
+    credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_env))
     # json.loads(credentials_env)
 else: # Local testing
     print("credentials not found")
@@ -100,6 +100,7 @@ def image_to_text():
 
 if __name__ == '__main__':
     app.run(host= "0.0.0.0", debug=True, threaded=True)
+
 
 
 
