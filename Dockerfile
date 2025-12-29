@@ -1,13 +1,13 @@
 FROM python:3.9-slim-buster
 
 RUN apt-get update && \
-    apt-get -qq -y install \
+    apt-get -qq -y install --no-install-recommends \
     tesseract-ocr \
     libtesseract-dev
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 COPY . .
