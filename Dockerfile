@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.10-buster
 
 RUN apt-get update && \
     apt-get -qq -y install --no-install-recommends \
